@@ -10,23 +10,29 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.GridView;
 import android.widget.TextView;
+import com.pikamander2.japanesequiz.R;
 
 import java.util.Random;
 
 public class QuizActivity extends Activity 
 {
-	Random random = new Random();
 	TextView textViewRomaji;
 	TextView textViewScore;
+	TextView textViewCorrect;
+	TextView textViewCorrectAnswer;
+	
+	int numCorrect = 0;
+	int quizID;
+	int numAnswerChoices = 4;
+	boolean romajiFirst = true; //0 = romaji as the question, symbol as the answer. 1 = symbol as the question, romaji as the answer.
+	
+	Random random = new Random();
 	GridView gridViewQuestions;
 	String currentAnswer = "";
 	String currentQuestion = "";
-	int numCorrect = 0;
 	Question question;
 	QuestionAdapter questionAdapter;
 	Intent intent;
-	int quizID;
-	int numAnswerChoices = 4;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) 
@@ -45,13 +51,17 @@ public class QuizActivity extends Activity
 		
 		textViewScore = (TextView)findViewById(R.id.textViewScore);
 		
+		textViewCorrect = (TextView)findViewById(R.id.textViewCorrect);
+		
+		textViewCorrectAnswer = (TextView)findViewById(R.id.textViewCorrectAnswer);
+		
 		gridViewQuestions = (GridView)findViewById(R.id.gridViewQuestions);
 		
 		updateScore();
 		
 		for (int i = 0; i < questionAdapter.buttons.size(); i++)
 		{
-			((Button)questionAdapter.getItem(i)).setOnClickListener(mCorkyListener);
+			((Button)questionAdapter.getItem(i)).setOnClickListener(answerOnClick);
 		}
 		
 		gridViewQuestions.setAdapter(questionAdapter);
@@ -59,16 +69,27 @@ public class QuizActivity extends Activity
 		switchQuestion();
 	}
 	
-	public OnClickListener mCorkyListener = new OnClickListener() 
+	public OnClickListener answerOnClick = new OnClickListener() 
 	{
 	    public void onClick(View v) 
 	    {
 	    	guess(v);
-	    	switchQuestion();
-	    	questionAdapter.changeAnswers();
-	    	questionAdapter.notifyDataSetChanged();
+	    	switchQuestionAndAnswers();
 	    }
 	};
+	
+    public void flipQuestions(View v) 
+    {
+    	romajiFirst = !romajiFirst;
+    	switchQuestionAndAnswers();
+    }
+    
+    public void switchQuestionAndAnswers()
+    {
+    	switchQuestion();
+    	questionAdapter.changeAnswers(romajiFirst);
+    	questionAdapter.notifyDataSetChanged();
+    }
 	
 	public void guess(View view)
 	{
@@ -78,7 +99,15 @@ public class QuizActivity extends Activity
 		{
 			numCorrect++;
 			updateScore();
+			textViewCorrect.setText("Correct!");	
 		}
+		
+		else
+		{
+			textViewCorrect.setText("Incorrect.");
+		}
+		
+		textViewCorrectAnswer.setText(currentQuestion + " = " + currentAnswer);
 		
 		switchQuestion();
 	}
@@ -93,8 +122,8 @@ public class QuizActivity extends Activity
 		question.shuffleQuestions();
 		int randNum = random.nextInt(4);
 		
-		currentQuestion = question.getQuestion(randNum);
-		currentAnswer = question.getAnswer(randNum);
+		currentQuestion = question.getQuestion(randNum, romajiFirst);
+		currentAnswer = question.getAnswer(randNum, romajiFirst);
 		textViewRomaji.setText(currentQuestion);
 	}
 

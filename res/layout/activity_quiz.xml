@@ -20,7 +20,7 @@
         android:layout_marginTop="8dp"
         android:ellipsize="start"
         android:gravity="center"
-        android:text="@string/secondPage"
+        android:text="@string/placeholderDash"
         android:textColor="@color/lightText"
         android:textSize="16sp" />
 
@@ -32,7 +32,7 @@
         android:layout_centerHorizontal="true"
         android:ellipsize="start"
         android:gravity="center"
-        android:text="@string/secondPage"
+        android:text="@string/placeholderDash"
         android:textColor="@color/lightText"
         android:textSize="35sp" />
 
@@ -50,7 +50,36 @@
         android:padding="0dp"
         android:stretchMode="columnWidth"
         android:verticalSpacing="0dp" >
-
     </GridView>
+
+    <TextView
+        android:id="@+id/textViewCorrect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/gridViewQuestions"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@color/lightText" />
+
+    <TextView
+        android:id="@+id/textViewCorrectAnswer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textViewCorrect"
+        android:layout_centerHorizontal="true"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@color/lightText" />
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textViewCorrectAnswer"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:text="Flip questions"
+        android:onClick="flipQuestions"
+        android:textColor="@color/lightText" />
 
 </RelativeLayout>

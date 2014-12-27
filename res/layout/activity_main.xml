@@ -40,16 +40,6 @@
             android:textColor="@color/lightText" />
 
         <Button
-            android:id="@+id/Button02"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:minWidth="120dp"
-            android:onClick="kanjiButtonPressed"
-            android:text="@string/buttonKanji"
-            android:textColor="@color/lightText" />
-
-        <Button
             android:id="@+id/Button03"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -64,7 +54,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="19dp"
+            android:layout_marginTop="15dp"
             android:text="@string/VersionNumber"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:textColor="@color/lightText" />

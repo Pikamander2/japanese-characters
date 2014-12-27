@@ -16,7 +16,7 @@
     <string name="buttonStuff">Press to do stuff</string>
     <string name="title_activity_display_message">DisplayMessageActivity</string>
     <string name="hello_world">Hello world!</string>
-    <string name="secondPage">-</string>
+    <string name="placeholderDash">-</string>
     <string name="buttonHiragana">Hiragana</string>
     <string name="buttonKatakana">Katakana</string>
     <string name="buttonKanji">Kanji</string>

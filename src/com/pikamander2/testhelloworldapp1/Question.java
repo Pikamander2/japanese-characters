@@ -53,11 +53,6 @@ public class Question
 	
 	private static ArrayList<String[]> katakanaList = new ArrayList<String[]>(Arrays.asList(tempKatakanaList));
 	
-	private static String[][] tempKanjiList = {{"六", "roku (six)"},{"一", "ichi (one)"},{"大", "dai (big)"},{"犬", "inu (dog)"},{"本", "hon (book)"},{"車", "kuruma (vehicle)"}
-	};
-	
-	private static ArrayList<String[]> kanjiList = new ArrayList<String[]>(Arrays.asList(tempKanjiList));
-	
 	public Question(int tempListId)
 	{
 		listId = tempListId;
@@ -78,7 +73,7 @@ public class Question
 	{
 		if (tempListId == 4)
 		{
-			tempListId = random.nextInt(3) + 1;
+			tempListId = random.nextInt(2) + 1;
 		}
 		
 		switch(tempListId)
@@ -89,19 +84,32 @@ public class Question
 			case 2:
 				listToUse = katakanaList;
 				break;
-			case 3:
-				listToUse = kanjiList;
-				break;
 		}
 	}
 	
-	public String getAnswer(int charID)
+	public String getAnswer(int charID, boolean romajiFirst)
 	{
-		return listToUse.get(charID)[0];
+		if (romajiFirst)
+		{
+			return listToUse.get(charID)[0];
+		}
+		
+		else
+		{
+			return listToUse.get(charID)[1];
+		}
 	}
 	
-	public String getQuestion(int charID)
+	public String getQuestion(int charID, boolean romajiFirst)
 	{
-		return listToUse.get(charID)[1];
+		if (romajiFirst)
+		{
+			return listToUse.get(charID)[1];
+		}
+		
+		else
+		{
+			return listToUse.get(charID)[0];
+		}
 	}
 }
