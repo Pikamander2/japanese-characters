@@ -27,7 +27,7 @@ public class QuizActivity extends Activity
 	boolean romajiFirst = true; //0 = romaji as the question, symbol as the answer. 1 = symbol as the question, romaji as the answer.
 	
 	Random random = new Random();
-	GridView gridViewQuestions;
+	ExpandableHeightGridView gridViewQuestions;
 	String currentAnswer = "";
 	String currentQuestion = "";
 	Question question;
@@ -55,7 +55,7 @@ public class QuizActivity extends Activity
 		
 		textViewCorrectAnswer = (TextView)findViewById(R.id.textViewCorrectAnswer);
 		
-		gridViewQuestions = (GridView)findViewById(R.id.gridViewQuestions);
+		gridViewQuestions = (ExpandableHeightGridView)findViewById(R.id.gridViewQuestions);
 		
 		updateScore();
 		
@@ -65,6 +65,7 @@ public class QuizActivity extends Activity
 		}
 		
 		gridViewQuestions.setAdapter(questionAdapter);
+		gridViewQuestions.setExpanded(true);
 
 		switchQuestion();
 	}

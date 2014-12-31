@@ -1,0 +1,8 @@
+<resources>
+    <dimen name="button_font_size">29sp</dimen>
+    <dimen name="version_font_size">20sp</dimen>
+    <dimen name="button_min_width">180dp</dimen>
+    <dimen name="button_min_height">80dp</dimen>
+    <dimen name="romaji_font_size">50sp</dimen>
+    <dimen name="score_font_size">25sp</dimen>
+</resources>

@@ -3,8 +3,11 @@ package com.pikamander2.testhelloworldapp1;
 import java.util.ArrayList;
 import java.util.Random;
 
+import com.pikamander2.japanesequiz.R;
+
 import android.content.Context;
 import android.graphics.Color;
+import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -53,6 +56,7 @@ public class QuestionAdapter extends BaseAdapter
             Button newButton = new Button(mContext);
             newButton.setOnClickListener(mContext.answerOnClick);
             buttons.add(newButton);
+            newButton.setTextSize(TypedValue.COMPLEX_UNIT_SP,mContext.getResources().getDimension(R.dimen.button_font_size));
             newButton.setText(question.getAnswer(i, true));
             newButton.setTextColor(Color.rgb(255,255,255));
     	}

@@ -16,14 +16,15 @@ public final class R {
     }
     public static final class dimen {
         /**  Default screen margins, per the Android Design guidelines. 
-
-         Example customization of dimensions originally defined in res/values/dimens.xml
-         (such as screen margins) for screens with more than 820dp of available width. This
-         would include 7" and 10" devices in landscape (~960dp and ~1280dp respectively).
-    
          */
         public static final int activity_horizontal_margin=0x7f040000;
         public static final int activity_vertical_margin=0x7f040001;
+        public static final int button_font_size=0x7f040002;
+        public static final int button_min_height=0x7f040005;
+        public static final int button_min_width=0x7f040004;
+        public static final int romaji_font_size=0x7f040006;
+        public static final int score_font_size=0x7f040007;
+        public static final int version_font_size=0x7f040003;
     }
     public static final class drawable {
         public static final int ic_launcher=0x7f020000;
@@ -51,23 +52,22 @@ public final class R {
         public static final int main=0x7f080001;
     }
     public static final class string {
-        public static final int VersionNumber=0x7f050010;
-        public static final int action_settings=0x7f050002;
+        public static final int VersionNumber=0x7f05000e;
+        public static final int action_settings=0x7f050001;
         public static final int app_name=0x7f050000;
-        public static final int buttonHiragana=0x7f05000c;
-        public static final int buttonKanji=0x7f05000e;
-        public static final int buttonKatakana=0x7f05000d;
-        public static final int buttonMixture=0x7f05000f;
-        public static final int buttonStuff=0x7f050008;
-        public static final int foodChoiceString=0x7f050007;
-        public static final int hello_world=0x7f05000a;
-        public static final int main_page_text=0x7f050001;
-        public static final int placeholderDash=0x7f05000b;
-        public static final int radioButton1=0x7f050004;
-        public static final int radioButton2=0x7f050005;
-        public static final int radioButton3=0x7f050006;
-        public static final int ratingText=0x7f050003;
-        public static final int title_activity_display_message=0x7f050009;
+        public static final int buttonFlip=0x7f05000f;
+        public static final int buttonHiragana=0x7f05000a;
+        public static final int buttonKanji=0x7f05000c;
+        public static final int buttonKatakana=0x7f05000b;
+        public static final int buttonMixture=0x7f05000d;
+        public static final int buttonStuff=0x7f050007;
+        public static final int foodChoiceString=0x7f050006;
+        public static final int placeholderDash=0x7f050009;
+        public static final int radioButton1=0x7f050003;
+        public static final int radioButton2=0x7f050004;
+        public static final int radioButton3=0x7f050005;
+        public static final int ratingText=0x7f050002;
+        public static final int title_activity_display_message=0x7f050008;
     }
     public static final class style {
         /** 

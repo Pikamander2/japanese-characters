@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Japanese characters</string>
-    <string name="main_page_text">Hello world!</string>
+    <string name="app_name">Hiragana and Katakana</string>
     <string name="action_settings">Settings</string>
 
     <color name="darkBG">#161622</color>
@@ -15,12 +14,12 @@
     <string name="foodChoiceString">What kind of food will you bring?</string>
     <string name="buttonStuff">Press to do stuff</string>
     <string name="title_activity_display_message">DisplayMessageActivity</string>
-    <string name="hello_world">Hello world!</string>
     <string name="placeholderDash">-</string>
     <string name="buttonHiragana">Hiragana</string>
     <string name="buttonKatakana">Katakana</string>
     <string name="buttonKanji">Kanji</string>
     <string name="buttonMixture">Mixture</string>
     <string name="VersionNumber">Version 1.0.0</string>
+    <string name="buttonFlip">Flip questions</string>
 
 </resources>
