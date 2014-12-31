@@ -19,7 +19,7 @@
     <string name="buttonKatakana">Katakana</string>
     <string name="buttonKanji">Kanji</string>
     <string name="buttonMixture">Mixture</string>
-    <string name="VersionNumber">Version 1.0.0</string>
+    <string name="VersionNumber">Version 1.0.1</string>
     <string name="buttonFlip">Flip questions</string>
 
 </resources>

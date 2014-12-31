@@ -16,7 +16,7 @@
     android:scrollbarAlwaysDrawVerticalTrack="true"
     android:scrollbarStyle="outsideOverlay"
     android:scrollbars="horizontal|vertical"
-    tools:context="com.pikamander2.testhelloworldapp1.QuizActivity" >
+    tools:context="com.pikamander2.japanesequiz.QuizActivity" >
 
     <TextView
         android:id="@+id/textViewScore"
@@ -44,7 +44,7 @@
         android:textColor="@color/lightText"
         android:textSize="@dimen/romaji_font_size" />
 
-    <com.pikamander2.testhelloworldapp1.ExpandableHeightGridView
+    <com.pikamander2.japanesequiz.ExpandableHeightGridView
         android:id="@+id/gridViewQuestions"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

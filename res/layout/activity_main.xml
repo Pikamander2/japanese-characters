@@ -20,7 +20,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:scrollbars="vertical"
     android:theme="@android:style/Theme.Holo.NoActionBar"
-    tools:context="com.pikamander2.testhelloworldapp1.MainActivity" >
+    tools:context="com.pikamander2.japanesequiz.MainActivity" >
 
     <LinearLayout
         android:id="@+id/linearLayout1"

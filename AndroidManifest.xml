@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.pikamander2.japanesequiz"
-    android:versionCode="1"
-    android:versionName="1.0" >
+    android:versionCode="2"
+    android:versionName="1.0.1" >
 
     <uses-sdk
         android:minSdkVersion="14"
@@ -15,7 +15,7 @@
         android:theme="@style/AppTheme"
         >
         <activity
-            android:name="com.pikamander2.testhelloworldapp1.MainActivity"
+            android:name="com.pikamander2.japanesequiz.MainActivity"
             android:label="@string/app_name" android:theme="@style/NoActionBar"
             android:configChanges="orientation|keyboardHidden|screenSize">
             <intent-filter>
@@ -25,10 +25,10 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.pikamander2.testhelloworldapp1.QuizActivity"
+            android:name="com.pikamander2.japanesequiz.QuizActivity"
             android:label="@string/title_activity_display_message"
             android:configChanges="orientation|keyboardHidden|screenSize"
-            android:parentActivityName=".MainActivity" android:theme="@style/NoActionBar">
+            android:theme="@style/NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.pikamander2.testhelloworldapp1.MainActivity" />
