@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import com.pikamander2.japanesequiz.R;
 
+import java.text.DecimalFormat;
 import java.util.Random;
 
 public class QuizActivity extends Activity 
@@ -21,9 +22,12 @@ public class QuizActivity extends Activity
 	TextView textViewCorrectAnswer;
 	
 	int numCorrect = 0;
+	int numWrong = 0;
 	int quizID;
 	int numAnswerChoices = 4;
 	boolean romajiFirst = true; //0 = romaji as the question, symbol as the answer. 1 = symbol as the question, romaji as the answer.
+	DecimalFormat df = new DecimalFormat("#");
+	
 	
 	Random random = new Random();
 	ExpandableHeightGridView gridViewQuestions;
@@ -104,6 +108,8 @@ public class QuizActivity extends Activity
 		
 		else
 		{
+			numWrong++;
+			updateScore();
 			textViewCorrect.setText("Incorrect.");
 		}
 		
@@ -112,9 +118,19 @@ public class QuizActivity extends Activity
 		switchQuestion();
 	}
 	
+	private String getPercentCorrect()
+	{
+		if ((numCorrect + numWrong) == 0)
+		{
+			return "0";
+		}
+		
+		return df.format((100.0 / (numCorrect + numWrong)) * numCorrect);
+	}
+	
 	public void updateScore()
 	{
-		textViewScore.setText("Score: " + numCorrect);
+		textViewScore.setText("Score: " + numCorrect + " (" + getPercentCorrect() + "%)");
 	}
 	
 	public void switchQuestion()
