@@ -58,7 +58,7 @@ public class MainActivity extends Activity
 	{
 	    public void onClick(View view) 
 	    {
-	    	switchActivity(view, 3);
+	    	switchActivity(view, 4);
 	    }
 	};
 	
