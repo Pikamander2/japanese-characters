@@ -60,6 +60,11 @@ public class QuizActivity extends Activity
 		
 		gridViewQuestions = (ExpandableHeightGridView)findViewById(R.id.gridViewQuestions);
 		
+		Button buttonFlipQuestions = (Button)findViewById(R.id.buttonFlipQuestions);
+		buttonFlipQuestions.setOnClickListener(flipQuestionsOnClick);
+		
+		
+		
 		updateScore();
 		
 		for (int i = 0; i < questionAdapter.buttons.size(); i++)
@@ -75,18 +80,21 @@ public class QuizActivity extends Activity
 	
 	public OnClickListener answerOnClick = new OnClickListener() 
 	{
-	    public void onClick(View v) 
+	    public void onClick(View view) 
 	    {
-	    	guess(v);
+	    	guess(view);
 	    	switchQuestionAndAnswers();
 	    }
 	};
 	
-    public void flipQuestions(View v) 
-    {
-    	romajiFirst = !romajiFirst;
-    	switchQuestionAndAnswers();
-    }
+	public OnClickListener flipQuestionsOnClick = new OnClickListener() 
+	{
+	    public void onClick(View view) 
+	    {
+	    	romajiFirst = !romajiFirst;
+	    	switchQuestionAndAnswers();
+	    }
+	};
     
     public void switchQuestionAndAnswers()
     {

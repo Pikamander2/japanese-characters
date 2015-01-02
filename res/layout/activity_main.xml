@@ -32,39 +32,36 @@
         android:orientation="vertical" >
 
         <Button
-            android:id="@+id/Button0"
+            android:id="@+id/buttonHiragana"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:minHeight="@dimen/button_min_height"
             android:minWidth="@dimen/button_min_width"
-            android:onClick="hiraganaButtonPressed"
             android:text="@string/buttonHiragana"
             android:textColor="@color/lightText"
             android:textSize="@dimen/button_font_size" />
 
         <Button
-            android:id="@+id/Button01"
+            android:id="@+id/buttonKatakana"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="5dp"
             android:minHeight="@dimen/button_min_height"
             android:minWidth="@dimen/button_min_width"
-            android:onClick="katakanaButtonPressed"
             android:text="@string/buttonKatakana"
             android:textColor="@color/lightText"
             android:textSize="@dimen/button_font_size" />
 
         <Button
-            android:id="@+id/Button03"
+            android:id="@+id/buttonMixture"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="5dp"
             android:minHeight="@dimen/button_min_height"
             android:minWidth="@dimen/button_min_width"
-            android:onClick="mixtureButtonPressed"
             android:text="@string/buttonMixture"
             android:textColor="@color/lightText"
             android:textSize="@dimen/button_font_size" />

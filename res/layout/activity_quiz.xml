@@ -80,7 +80,7 @@
         android:textColor="@color/lightText" />
 
     <Button
-        android:id="@+id/button1"
+        android:id="@+id/buttonFlipQuestions"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textViewCorrectAnswer"
@@ -88,7 +88,6 @@
         android:layout_marginTop="10dp"
         android:minHeight="@dimen/button_min_height"
         android:minWidth="@dimen/button_min_width"
-        android:onClick="flipQuestions"
         android:text="@string/buttonFlip"
         android:textColor="@color/lightText"
         android:textSize="@dimen/button_font_size" />
