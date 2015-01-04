@@ -1,0 +1,9 @@
+#java specific
+*.class
+*.jar
+
+#generated files
+bin/
+gen/
+*.apk
+*.ap_
