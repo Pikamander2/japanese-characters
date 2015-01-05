@@ -5,14 +5,14 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Random;
 
-public class Question 
+public class Question
 {
 	private Random random = new Random();
-	
+
 	private ArrayList<String[]> listToUse;
-	
+
 	private int listId;
-	
+
 	private static String[][] tempHiraganaList = {{"あ", "a"},{"い", "i"},{"う", "u"},{"え", "e"},{"お", "o"},
 		{"か", "ka"},{"き", "ki"},{"く", "ku"},{"け", "ke"},{"こ", "ko"},
 		{"さ", "sa"},{"し", "shi"},{"す", "su"},{"せ", "se"},{"そ", "so"},
@@ -30,9 +30,9 @@ public class Question
 		{"ば", "ba"},{"び", "bi"},{"ぶ", "bu"},{"べ", "be"},{"ぼ", "bo"},
 		{"ぱ", "pa"},{"ぴ", "pi"},{"ぷ", "pu"},{"ぺ", "pe"},{"ぽ", "po"}
 		};
-		
+
 	private static ArrayList<String[]> hiraganaList = new ArrayList<String[]>(Arrays.asList(tempHiraganaList));
-	
+
 	private static String[][] tempKatakanaList = {{"ア", "a"},{"イ", "i"},{"ウ", "u"},{"エ", "e"},{"オ", "o"},
 	{"カ", "ka"},{"キ", "ki"},{"ク", "ku"},{"ケ", "ke"},{"コ", "ko"},
 	{"サ", "sa"},{"シ", "shi"},{"ス", "su"},{"セ", "se"},{"ソ", "so"},
@@ -50,32 +50,32 @@ public class Question
 	{"バ", "ba"},{"ビ", "bi"},{"ブ", "bu"},{"ベ", "be"},{"ボ", "bo"},
 	{"パ", "pa"},{"ピ", "pi"},{"プ", "pu"},{"ペ", "pe"},{"ポ", "po"}
 	};
-	
+
 	private static ArrayList<String[]> katakanaList = new ArrayList<String[]>(Arrays.asList(tempKatakanaList));
-	
+
 	public Question(int tempListId)
 	{
 		listId = tempListId;
 		setList(tempListId);
 	}
-	
+
 	public void shuffleQuestions()
 	{
 		if (listId == 4)
 		{
 			setList(4);
 		}
-		
+
 		Collections.shuffle(listToUse);
 	}
-	
+
 	public void setList(int tempListId)
 	{
 		if (tempListId == 4)
 		{
 			tempListId = random.nextInt(2) + 1;
 		}
-		
+
 		switch(tempListId)
 		{
 			case 1:
@@ -86,27 +86,27 @@ public class Question
 				break;
 		}
 	}
-	
+
 	public String getAnswer(int charID, boolean romajiFirst)
 	{
 		if (romajiFirst)
 		{
 			return listToUse.get(charID)[0];
 		}
-		
+
 		else
 		{
 			return listToUse.get(charID)[1];
 		}
 	}
-	
+
 	public String getQuestion(int charID, boolean romajiFirst)
 	{
 		if (romajiFirst)
 		{
 			return listToUse.get(charID)[1];
 		}
-		
+
 		else
 		{
 			return listToUse.get(charID)[0];

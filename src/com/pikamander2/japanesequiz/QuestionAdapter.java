@@ -13,22 +13,22 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 
-public class QuestionAdapter extends BaseAdapter 
+public class QuestionAdapter extends BaseAdapter
 {
     private QuizActivity mContext;
-    
+
     public ArrayList<String> choices = new ArrayList<String>();
     public ArrayList<Button> buttons = new ArrayList<Button>();
-    
+
     public Random random = new Random();
     public static Question question;
 
-    public QuestionAdapter(Context c, Question q) 
+    public QuestionAdapter(Context c, Question q)
     {
         mContext = (QuizActivity)c;
         question = q;
     }
-    
+
     public void changeAnswers(boolean romajiFirst)
     {
     	buttons.get(0).setText(question.getAnswer(0, romajiFirst));
@@ -49,30 +49,30 @@ public class QuestionAdapter extends BaseAdapter
             newButton.setTextColor(Color.rgb(255,255,255));
     	}
     }
-    
-    public int getCount() 
+
+    public int getCount()
     {
         return 4;
     }
 
-    public Object getItem(int position) 
+    public Object getItem(int position)
     {
         return null;
     }
 
-    public long getItemId(int position) 
+    public long getItemId(int position)
     {
         return 0;
     }
 
     // create a new ImageView for each item referenced by the Adapter
-    public View getView(int position, View convertView, ViewGroup parent) 
+    public View getView(int position, View convertView, ViewGroup parent)
     {
     	if (buttons.size() == 0)
     	{
     		makeButtons();
     	}
-    	
+
         return buttons.get(position);
     }
 }
