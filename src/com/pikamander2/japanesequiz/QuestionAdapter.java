@@ -31,22 +31,10 @@ public class QuestionAdapter extends BaseAdapter
     
     public void changeAnswers(boolean romajiFirst)
     {
-    	if (romajiFirst)
-    	{
-        	buttons.get(0).setText(question.getAnswer(0, romajiFirst));
-        	buttons.get(1).setText(question.getAnswer(1, romajiFirst));
-        	buttons.get(2).setText(question.getAnswer(2, romajiFirst));
-        	buttons.get(3).setText(question.getAnswer(3, romajiFirst));
-    	}
-    	
-    	else
-    	{
-        	buttons.get(0).setText(question.getAnswer(0, romajiFirst));
-        	buttons.get(1).setText(question.getAnswer(1, romajiFirst));
-        	buttons.get(2).setText(question.getAnswer(2, romajiFirst));
-        	buttons.get(3).setText(question.getAnswer(3, romajiFirst));
-    	}
-
+    	buttons.get(0).setText(question.getAnswer(0, romajiFirst));
+    	buttons.get(1).setText(question.getAnswer(1, romajiFirst));
+    	buttons.get(2).setText(question.getAnswer(2, romajiFirst));
+    	buttons.get(3).setText(question.getAnswer(3, romajiFirst));
     }
 
     public void makeButtons()
