@@ -7,11 +7,17 @@ import java.util.Random;
 
 public class Question
 {
+	public final int MARKER_START = 46;
+
 	private Random random = new Random();
+
+	private int currentAnswer;
 
 	private ArrayList<String[]> listToUse;
 
 	private int listId;
+
+	private ArrayList<String> answerHistory = new ArrayList<String>();
 
 	private static String[][] tempHiraganaList = {{"あ", "a"},{"い", "i"},{"う", "u"},{"え", "e"},{"お", "o"},
 		{"か", "ka"},{"き", "ki"},{"く", "ku"},{"け", "ke"},{"こ", "ko"},
@@ -59,14 +65,12 @@ public class Question
 		setList(tempListId);
 	}
 
-	public void shuffleQuestions()
+	public void prepareList()
 	{
 		if (listId == 4)
 		{
 			setList(4);
 		}
-
-		Collections.shuffle(listToUse);
 	}
 
 	public void setList(int tempListId)
@@ -100,6 +104,14 @@ public class Question
 		}
 	}
 
+	public void setCurrentAnswer(int answer){
+		this.currentAnswer = answer;
+	}
+
+	public String getCurrentAnswer(boolean romajiFirst){
+		return listToUse.get(currentAnswer)[romajiFirst ? 0 : 1];
+	}
+
 	public String getQuestion(int charID, boolean romajiFirst)
 	{
 		if (romajiFirst)
@@ -111,5 +123,31 @@ public class Question
 		{
 			return listToUse.get(charID)[0];
 		}
+	}
+
+	public String getRandomAnswer(boolean romajiFirst){
+		String candidateAnswer = "";
+		int candidateNumber;
+
+		do{
+			candidateNumber = this.random.nextInt(listToUse.size());
+
+			if(currentAnswer >= MARKER_START && candidateNumber < MARKER_START)
+				candidateNumber = (candidateNumber % (listToUse.size() - MARKER_START) + MARKER_START);
+			candidateAnswer = getAnswer(candidateNumber, romajiFirst);
+		} while(answerHistory.contains(candidateAnswer));
+
+		answerHistory.add(candidateAnswer);
+
+		return candidateAnswer;
+	}
+
+	public void clearHistory(boolean romajiFirst){
+		this.answerHistory = new ArrayList<String>();
+		this.answerHistory.add(listToUse.get(currentAnswer)[romajiFirst ? 0 : 1]);
+	}
+
+	public ArrayList<String[]> getUsedList(){
+		return listToUse;
 	}
 }

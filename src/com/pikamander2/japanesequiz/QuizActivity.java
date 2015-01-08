@@ -140,11 +140,15 @@ public class QuizActivity extends Activity
 
 	public void switchQuestion()
 	{
-		question.shuffleQuestions();
-		int randNum = random.nextInt(4);
+		question.prepareList();
+		int randNum = random.nextInt(question.getUsedList().size());
 
 		currentQuestion = question.getQuestion(randNum, romajiFirst);
 		currentAnswer = question.getAnswer(randNum, romajiFirst);
+
+		question.setCurrentAnswer(randNum);
+		question.clearHistory(romajiFirst);
+
 		textViewRomaji.setText(currentQuestion);
 	}
 

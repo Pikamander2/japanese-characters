@@ -1,6 +1,7 @@
 package com.pikamander2.japanesequiz;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Random;
 
 import com.pikamander2.japanesequiz.R;
@@ -31,10 +32,12 @@ public class QuestionAdapter extends BaseAdapter
 
     public void changeAnswers(boolean romajiFirst)
     {
-    	buttons.get(0).setText(question.getAnswer(0, romajiFirst));
-    	buttons.get(1).setText(question.getAnswer(1, romajiFirst));
-    	buttons.get(2).setText(question.getAnswer(2, romajiFirst));
-    	buttons.get(3).setText(question.getAnswer(3, romajiFirst));
+		buttons.get(0).setText(question.getRandomAnswer(romajiFirst));
+		buttons.get(1).setText(question.getRandomAnswer(romajiFirst));
+		buttons.get(2).setText(question.getRandomAnswer(romajiFirst));
+		buttons.get(3).setText(question.getRandomAnswer(romajiFirst));
+
+		buttons.get(random.nextInt(4)).setText(question.getCurrentAnswer(romajiFirst));
     }
 
     public void makeButtons()
@@ -45,9 +48,10 @@ public class QuestionAdapter extends BaseAdapter
             newButton.setOnClickListener(mContext.answerOnClick);
             buttons.add(newButton);
             newButton.setTextSize(TypedValue.COMPLEX_UNIT_SP,mContext.getResources().getDimension(R.dimen.button_font_size));
-            newButton.setText(question.getAnswer(i, true));
             newButton.setTextColor(Color.rgb(255,255,255));
     	}
+
+			changeAnswers(true);
     }
 
     public int getCount()
