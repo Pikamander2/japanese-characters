@@ -29,14 +29,14 @@ public class QuestionAdapter extends BaseAdapter
         question = q;
     }
 
-    public void changeAnswers(boolean romajiFirst)
+    public void changeAnswers()
     {
-    	buttons.get(0).setText(question.getAnswer(0, romajiFirst));
-    	buttons.get(1).setText(question.getAnswer(1, romajiFirst));
-    	buttons.get(2).setText(question.getAnswer(2, romajiFirst));
-    	buttons.get(3).setText(question.getAnswer(3, romajiFirst));
+    	buttons.get(0).setText(question.getAnswer(0));
+    	buttons.get(1).setText(question.getAnswer(1));
+    	buttons.get(2).setText(question.getAnswer(2));
+    	buttons.get(3).setText(question.getAnswer(3));
     }
-
+    
     public void makeButtons()
     {
     	for (int i = 0; i < 4; i++)
@@ -45,9 +45,10 @@ public class QuestionAdapter extends BaseAdapter
             newButton.setOnClickListener(mContext.answerOnClick);
             buttons.add(newButton);
             newButton.setTextSize(TypedValue.COMPLEX_UNIT_SP,mContext.getResources().getDimension(R.dimen.button_font_size));
-            newButton.setText(question.getAnswer(i, true));
             newButton.setTextColor(Color.rgb(255,255,255));
     	}
+
+			changeAnswers();
     }
 
     public int getCount()

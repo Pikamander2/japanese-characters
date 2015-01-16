@@ -25,8 +25,6 @@ public class QuizActivity extends Activity
 	int numWrong = 0;
 	int quizID;
 	int numAnswerChoices = 4;
-	boolean romajiFirst = true; //0 = romaji as the question, symbol as the answer. 1 = symbol as the question, romaji as the answer.
-	DecimalFormat df = new DecimalFormat("#");
 
 	Random random = new Random();
 	ExpandableHeightGridView gridViewQuestions;
@@ -88,7 +86,7 @@ public class QuizActivity extends Activity
 	{
 	    public void onClick(View view)
 	    {
-	    	romajiFirst = !romajiFirst;
+	    	question.switchRomajiFirst();
 	    	switchQuestionAndAnswers();
 	    }
 	};
@@ -96,7 +94,7 @@ public class QuizActivity extends Activity
     public void switchQuestionAndAnswers()
     {
     	switchQuestion();
-    	questionAdapter.changeAnswers(romajiFirst);
+    	questionAdapter.changeAnswers();
     	questionAdapter.notifyDataSetChanged();
     }
 
@@ -130,6 +128,7 @@ public class QuizActivity extends Activity
 			return "0";
 		}
 
+		DecimalFormat df = new DecimalFormat("#");
 		return df.format((100.0 / (numCorrect + numWrong)) * numCorrect);
 	}
 
@@ -143,8 +142,11 @@ public class QuizActivity extends Activity
 		question.shuffleQuestions();
 		int randNum = random.nextInt(4);
 
-		currentQuestion = question.getQuestion(randNum, romajiFirst);
-		currentAnswer = question.getAnswer(randNum, romajiFirst);
+		currentQuestion = question.getQuestion(randNum);
+		currentAnswer = question.getAnswer(randNum);
+
+		question.setCurrentAnswer(randNum);
+
 		textViewRomaji.setText(currentQuestion);
 	}
 
