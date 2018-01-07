@@ -16,7 +16,7 @@ public class Question {
 
     private boolean romajiFirst = true;
 
-    private static ArrayList<String[]> plainHiragana = new ArrayList<String[]>(Arrays.asList(new String[][]{{"あ", "a"}, {"い", "i"}, {"う", "u"}, {"え", "e"}, {"お", "o"},
+    private static ArrayList<String[]> gojuuOnHiragana = new ArrayList<String[]>(Arrays.asList(new String[][]{{"あ", "a"}, {"い", "i"}, {"う", "u"}, {"え", "e"}, {"お", "o"},
             {"か", "ka"}, {"き", "ki"}, {"く", "ku"}, {"け", "ke"}, {"こ", "ko"},
             {"さ", "sa"}, {"し", "shi"}, {"す", "su"}, {"せ", "se"}, {"そ", "so"},
             {"た", "ta"}, {"ち", "chi"}, {"つ", "tsu"}, {"て", "te"}, {"と", "to"},
@@ -29,11 +29,31 @@ public class Question {
             {"ん", "n"}}));
 
     private static ArrayList<String[]> dakutenHiragana = new ArrayList<String[]>(Arrays.asList(new String[][]{
-            {"が", "ga"}, {"ぎ", "gi"}, {"ぐ", "gu"}, {"げ", "ge"}, {"ご", "go"},
+            {"が", "ga"}, {"ぎ", "gi"}, {"ぐ", "gu"}, {"げ", "ge"}, {"ご", "go"},         // 20 dakuten
             {"ざ", "za"}, {"じ", "ji"}, {"ず", "zu"}, {"ぜ", "ze"}, {"ぞ", "zo"},
-            {"だ", "da"}, {"ぢ", "ji"}, {"づ", "zu"}, {"で", "de"}, {"ど", "do"},
+            {"だ", "da"}, {"ぢ", "dji"}, {"づ", "dzu"}, {"で", "de"}, {"ど", "do"},
             {"ば", "ba"}, {"び", "bi"}, {"ぶ", "bu"}, {"べ", "be"}, {"ぼ", "bo"},
-            {"ぱ", "pa"}, {"ぴ", "pi"}, {"ぷ", "pu"}, {"ぺ", "pe"}, {"ぽ", "po"}
+            {"ぱ", "pa"}, {"ぴ", "pi"}, {"ぷ", "pu"}, {"ぺ", "pe"}, {"ぽ", "po"}          // 5 handakuten
+    }));
+
+    private static ArrayList<String[]> youOnHiragana = new ArrayList<String[]>(Arrays.asList(new String[][]{
+            {"きゃ", "kya"}, {"きゅ", "kyu"}, {"きょ", "kyo"},
+            {"しゃ", "sha"}, {"しゅ", "shu"}, {"しょ", "sho"},
+            {"ちゃ", "cha"}, {"ちゅ", "chu"}, {"ちょ", "cho"},
+            {"にゃ", "nya"}, {"にゅ", "nyu"}, {"にょ", "nyo"},
+            {"ひゃ", "hya"}, {"ひゅ", "hyu"}, {"ひょ", "hyo"},
+            {"みゃ", "mya"}, {"みゅ", "myu"}, {"みょ", "myo"},
+            {"りゃ", "rya"}, {"りゅ", "ryu"}, {"りょ", "ryo"},
+            {"っ", "rep cons"}, {"ゝ", "dup unvoice"}, {"ゞ", "dup voice"}          // https://en.wikipedia.org/wiki/Geminate
+                                                                                   // https://en.wikipedia.org/wiki/%E3%82%9D
+    }));
+
+    private static ArrayList<String[]> youOnDakutenHiragana = new ArrayList<String[]>(Arrays.asList(new String[][]{
+            {"がゃ", "gya"}, {"がゅ", "gyu"}, {"がょ", "gyo"},
+            {"ざゃ", "ja" }, {"ざゅ", "ju" }, {"ざょ", "jo" },
+            {"だゃ", "dja"}, {"だゅ", "dju"}, {"だょ", "djo"},
+            {"ばゃ", "bya"}, {"ばゅ", "byu"}, {"ばょ", "byo"},
+            {"ぱゃ", "pya"}, {"ぱゅ", "pyu"}, {"ぱょ", "pyo"}
     }));
 
     private static ArrayList<String[]> plainKatakana = new ArrayList<String[]>(Arrays.asList(new String[][]{{"ア", "a"}, {"イ", "i"}, {"ウ", "u"}, {"エ", "e"}, {"オ", "o"},
@@ -55,6 +75,25 @@ public class Question {
             {"ダ", "da"}, {"ヂ", "ji"}, {"ヅ", "zu"}, {"デ", "de"}, {"ド", "do"},
             {"バ", "ba"}, {"ビ", "bi"}, {"ブ", "bu"}, {"ベ", "be"}, {"ボ", "bo"},
             {"パ", "pa"}, {"ピ", "pi"}, {"プ", "pu"}, {"ペ", "pe"}, {"ポ", "po"}
+    }));
+
+    private static ArrayList<String[]> youOnKatakana = new ArrayList<String[]>(Arrays.asList(new String[][]{
+            {"キヤ", "kya"}, {"キユ", "kyu"}, {"キヨ", "kyo"},
+            {"シヤ", "sha"}, {"シユ", "shu"}, {"シヨ", "sho"},
+            {"チヤ", "cha"}, {"チユ", "chu"}, {"チヨ", "cho"},
+            {"ニヤ", "nya"}, {"ニユ", "nyu"}, {"ニヨ", "nyo"},
+            {"ヒヤ", "hya"}, {"ヒユ", "hyu"}, {"ヒヨ", "hyo"},
+            {"ミヤ", "mya"}, {"ミユ", "myu"}, {"ミヨ", "myo"},
+            {"リヤ", "rya"}, {"リユ", "ryu"}, {"リヨ", "ryo"},
+            {"ー", "long vowel"}, {"ヽ", "dup unvoice"}, {"ヾ", "dup voice"}              // https://en.wikipedia.org/wiki/Katakana
+    }));
+
+    private static ArrayList<String[]> youOnDakutenKatakana = new ArrayList<String[]>(Arrays.asList(new String[][]{
+            {"ギヤ", "gya"}, {"ギユ", "gyu"}, {"ギヨ", "gyo"},
+            {"ジヤ", "ja" }, {"ジユ", "ju" }, {"ジヨ", "jo" },
+            {"ヂヤ", "dja"}, {"ヂユ", "dju"}, {"ヂヨ", "djo"},
+            {"ビヤ", "bya"}, {"ビユ", "byu"}, {"ビヨ", "byo"},
+            {"ピヤ", "pya"}, {"ピユ", "pyu"}, {"ピヨ", "pyo"}
     }));
 
     public Question(int tempListId) {
@@ -81,10 +120,10 @@ public class Question {
 
         switch (tempListId) {
             case 1: //Hiragana
-                randNum = random.nextInt(plainHiragana.size() + dakutenHiragana.size());
+                randNum = random.nextInt(gojuuOnHiragana.size() + dakutenHiragana.size());
 
-                if (randNum < plainHiragana.size()) {
-                    listToUse = plainHiragana;
+                if (randNum < gojuuOnHiragana.size()) {
+                    listToUse = gojuuOnHiragana;
                 } else {
                     listToUse = dakutenHiragana;
                 }
