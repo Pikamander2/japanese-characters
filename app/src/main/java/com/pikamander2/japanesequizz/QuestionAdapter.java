@@ -26,14 +26,11 @@ public class QuestionAdapter extends BaseAdapter {
     }
 
     public void changeAnswers() {
-        buttons.get(0).setText(question.getAnswer(0));
-        buttons.get(1).setText(question.getAnswer(1));
-        buttons.get(2).setText(question.getAnswer(2));
-        buttons.get(3).setText(question.getAnswer(3));
+        for(int i = 0; i < buttons.size(); i++) buttons.get(i).setText(question.getAnswer(i));
     }
 
     public void makeButtons() {
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < getCount(); i++) {
             Button newButton = new Button(mContext);
             newButton.setOnClickListener(mContext.answerOnClick);
             buttons.add(newButton);
@@ -45,7 +42,7 @@ public class QuestionAdapter extends BaseAdapter {
     }
 
     public int getCount() {
-        return 4;
+        return mContext.numAnswerChoices;
     }
 
     public Object getItem(int position) {

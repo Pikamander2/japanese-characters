@@ -23,7 +23,7 @@ public class QuizActivity extends Activity {
     int numCorrect = 0;
     int numWrong = 0;
     int quizID;
-    int numAnswerChoices = 4;
+    int numAnswerChoices = 8;
 
     Random random = new Random();
     ExpandableHeightGridView gridViewQuestions;
@@ -125,7 +125,7 @@ public class QuizActivity extends Activity {
 
     public void switchQuestion() {
         question.shuffleQuestions();
-        int randNum = random.nextInt(4);
+        int randNum = random.nextInt(numAnswerChoices);
 
         currentQuestion = question.getQuestion(randNum);
         currentAnswer = question.getAnswer(randNum);
