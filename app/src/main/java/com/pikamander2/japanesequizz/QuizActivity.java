@@ -2,6 +2,7 @@ package com.pikamander2.japanesequizz;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -96,10 +97,12 @@ public class QuizActivity extends Activity {
             numCorrect++;
             updateScore();
             textViewCorrect.setText("Correct!");
+            textViewCorrect.setTextColor(Color.WHITE);
         } else {
             numWrong++;
             updateScore();
             textViewCorrect.setText("Incorrect.");
+            textViewCorrect.setTextColor(Color.RED);
         }
 
         textViewCorrectAnswer.setText(currentQuestion + " = " + currentAnswer);
