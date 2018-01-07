@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file:///mnt/extra/antoine/dev/android/japchar/app/app.iml" filepath="/mnt/extra/antoine/dev/android/japchar/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/japchar.iml" filepath="$PROJECT_DIR$/japchar.iml" />
+    </modules>
+  </component>
+</project>

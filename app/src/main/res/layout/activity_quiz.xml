@@ -1,0 +1,97 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+  	android:layout_width="fill_parent"
+  	android:layout_height="fill_parent"
+  	android:background="@color/darkBG"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:fillViewport="true">
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="0dp"
+    android:scrollbarAlwaysDrawVerticalTrack="true"
+    android:scrollbarStyle="outsideOverlay"
+    android:scrollbars="horizontal|vertical"
+    tools:context="com.pikamander2.japanesequizz.pikamander2.com.japanesequizz.QuizActivity" >
+
+    <TextView
+        android:id="@+id/textViewScore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textViewRomaji"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        android:ellipsize="start"
+        android:gravity="center"
+        android:text="@string/placeholderDash"
+        android:textColor="@color/lightText"
+        android:textSize="@dimen/score_font_size" />
+
+    <TextView
+        android:id="@+id/textViewRomaji"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:ellipsize="start"
+        android:gravity="center"
+        android:text="@string/placeholderDash"
+        android:textColor="@color/lightText"
+        android:textSize="@dimen/romaji_font_size" />
+
+    <com.pikamander2.japanesequizz.ExpandableHeightGridView
+        android:id="@+id/gridViewQuestions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textViewScore"
+        android:layout_gravity="center"
+        android:columnWidth="45dp"
+        android:gravity="center"
+        android:horizontalSpacing="0dp"
+        android:numColumns="2"
+        android:padding="0dp"
+        android:scrollbars="vertical|none"
+        android:stretchMode="columnWidth"
+        android:verticalSpacing="0dp" />
+
+    <TextView
+        android:id="@+id/textViewCorrect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/gridViewQuestions"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@color/lightText" />
+
+    <TextView
+        android:id="@+id/textViewCorrectAnswer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textViewCorrect"
+        android:layout_centerHorizontal="true"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@color/lightText" />
+
+    <Button
+        android:id="@+id/buttonFlipQuestions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textViewCorrectAnswer"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:minHeight="@dimen/button_min_height"
+        android:minWidth="@dimen/button_min_width"
+        android:text="@string/buttonFlip"
+        android:textColor="@color/lightText"
+        android:textSize="@dimen/button_font_size" />
+
+</RelativeLayout>
+
+</ScrollView>
