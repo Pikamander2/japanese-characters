@@ -7,8 +7,8 @@
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="modules">
           <set>
-            <option value="/mnt/extra/antoine/dev/android/japchar" />
-            <option value="/mnt/extra/antoine/dev/android/japchar/app" />
+            <option value="/mnt/extra/antoine/dev/android/japanese-characters" />
+            <option value="/mnt/extra/antoine/dev/android/japanese-characters/app" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
