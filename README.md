@@ -53,6 +53,7 @@ Todo
 ----
 * Add Composed Kana   ie:  Gyu  Pyo  Nya etc ...
 * Customize number of answer to increase difficulty
+* Memorise/Summarise scores after n answers
 * Draw Kana instead of picking (unlikely to occur in this app ;-) )
 
 
