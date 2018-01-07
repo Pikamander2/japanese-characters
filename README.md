@@ -46,13 +46,15 @@ along with this program.  If not, see http://www.gnu.org/licenses
 
 Latest Changes
 --------------
-* switched to Android-Studio
+* Switched to Android-Studio
 * Add color for error message
+* Customize number of answer to increase difficulty
 
 Todo
 ----
 * Add Composed Kana   ie:  Gyu  Pyo  Nya etc ...
-* Customize number of answer to increase difficulty
+* Adjust Difficulty and Question count
+* Reduce size of proposal buttons to fit in horizontal view
 * Memorise/Summarise scores after n answers
 * Draw Kana instead of picking (unlikely to occur in this app ;-) )
 
