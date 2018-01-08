@@ -4,7 +4,6 @@
     <modules>
       <module fileurl="file:///mnt/extra/antoine/dev/android/japchar/app/app.iml" filepath="/mnt/extra/antoine/dev/android/japchar/app/app.iml" />
       <module fileurl="file:///mnt/extra/antoine/dev/android/japanese-characters/japanese-characters.iml" filepath="/mnt/extra/antoine/dev/android/japanese-characters/japanese-characters.iml" />
-      <module fileurl="file://$PROJECT_DIR$/japchar.iml" filepath="$PROJECT_DIR$/japchar.iml" />
     </modules>
   </component>
 </project>

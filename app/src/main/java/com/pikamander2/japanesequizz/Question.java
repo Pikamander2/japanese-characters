@@ -1,11 +1,14 @@
 package com.pikamander2.japanesequizz;
 
+import android.preference.PreferenceManager;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Random;
 
 public class Question {
+    private final QuizActivity context;
     private Random random = new Random();
 
     private int currentAnswer;
@@ -44,16 +47,13 @@ public class Question {
             {"ひゃ", "hya"}, {"ひゅ", "hyu"}, {"ひょ", "hyo"},
             {"みゃ", "mya"}, {"みゅ", "myu"}, {"みょ", "myo"},
             {"りゃ", "rya"}, {"りゅ", "ryu"}, {"りょ", "ryo"},
-            {"っ", "rep cons"}, {"ゝ", "dup unvoice"}, {"ゞ", "dup voice"}          // https://en.wikipedia.org/wiki/Geminate
+//            {"っ", "rep cons"}, {"ゝ", "dup unvoice"}, {"ゞ", "dup voice"}          // https://en.wikipedia.org/wiki/Geminate
                                                                                    // https://en.wikipedia.org/wiki/%E3%82%9D
-    }));
-
-    private static ArrayList<String[]> youOnDakutenHiragana = new ArrayList<String[]>(Arrays.asList(new String[][]{
-            {"がゃ", "gya"}, {"がゅ", "gyu"}, {"がょ", "gyo"},
-            {"ざゃ", "ja" }, {"ざゅ", "ju" }, {"ざょ", "jo" },
-            {"だゃ", "dja"}, {"だゅ", "dju"}, {"だょ", "djo"},
-            {"ばゃ", "bya"}, {"ばゅ", "byu"}, {"ばょ", "byo"},
-            {"ぱゃ", "pya"}, {"ぱゅ", "pyu"}, {"ぱょ", "pyo"}
+            {"ぎゃ", "gya"}, {"ぎゅ", "gyu"}, {"ぎょ", "gyo"},
+            {"じゃ", "ja" }, {"じゅ", "ju" }, {"じょ", "jo" },
+            {"ぢゃ", "dja"}, {"ぢゅ", "dju"}, {"ぢょ", "djo"},
+            {"びゃ", "bya"}, {"びゅ", "byu"}, {"びょ", "byo"},
+            {"ぴゃ", "pya"}, {"ぴゅ", "pyu"}, {"ぴょ", "pyo"}
     }));
 
     private static ArrayList<String[]> plainKatakana = new ArrayList<String[]>(Arrays.asList(new String[][]{{"ア", "a"}, {"イ", "i"}, {"ウ", "u"}, {"エ", "e"}, {"オ", "o"},
@@ -85,10 +85,7 @@ public class Question {
             {"ヒヤ", "hya"}, {"ヒユ", "hyu"}, {"ヒヨ", "hyo"},
             {"ミヤ", "mya"}, {"ミユ", "myu"}, {"ミヨ", "myo"},
             {"リヤ", "rya"}, {"リユ", "ryu"}, {"リヨ", "ryo"},
-            {"ー", "long vowel"}, {"ヽ", "dup unvoice"}, {"ヾ", "dup voice"}              // https://en.wikipedia.org/wiki/Katakana
-    }));
-
-    private static ArrayList<String[]> youOnDakutenKatakana = new ArrayList<String[]>(Arrays.asList(new String[][]{
+//            {"ー", "long vowel"}, {"ヽ", "dup unvoice"}, {"ヾ", "dup voice"}              // https://en.wikipedia.org/wiki/Katakana
             {"ギヤ", "gya"}, {"ギユ", "gyu"}, {"ギヨ", "gyo"},
             {"ジヤ", "ja" }, {"ジユ", "ju" }, {"ジヨ", "jo" },
             {"ヂヤ", "dja"}, {"ヂユ", "dju"}, {"ヂヨ", "djo"},
@@ -96,8 +93,9 @@ public class Question {
             {"ピヤ", "pya"}, {"ピユ", "pyu"}, {"ピヨ", "pyo"}
     }));
 
-    public Question(int tempListId) {
+    public Question(int tempListId, QuizActivity context) {
         listId = tempListId;
+        this.context = context;
         setList(tempListId);
     }
 
@@ -113,6 +111,12 @@ public class Question {
 
     public void setList(int tempListId) {
         int randNum;
+        boolean easy = false;
+
+        boolean full_switch = PreferenceManager
+                    .getDefaultSharedPreferences(context)
+                    .getBoolean("is_full_switch", false);
+            easy = !full_switch;
 
         if (tempListId == 4) {
             tempListId = random.nextInt(2) + 1;
@@ -120,23 +124,23 @@ public class Question {
 
         switch (tempListId) {
             case 1: //Hiragana
-                randNum = random.nextInt(gojuuOnHiragana.size() + dakutenHiragana.size());
+                randNum = random.nextInt(gojuuOnHiragana.size() + dakutenHiragana.size() + (easy ? 0 : youOnHiragana.size()));
 
                 if (randNum < gojuuOnHiragana.size()) {
                     listToUse = gojuuOnHiragana;
-                } else {
+                } else if(randNum < gojuuOnHiragana.size() + dakutenHiragana.size()) {
                     listToUse = dakutenHiragana;
-                }
+                } else listToUse = youOnHiragana;
 
                 break;
             case 2: //Katakana
-                randNum = random.nextInt(plainKatakana.size() + dakutenKatakana.size());
+                randNum = random.nextInt(plainKatakana.size() + dakutenKatakana.size() + (easy ? 0 : youOnHiragana.size()));
 
                 if (randNum < plainKatakana.size()) {
                     listToUse = plainKatakana;
-                } else {
+                } else if (randNum < plainKatakana.size() + dakutenKatakana.size()) {
                     listToUse = dakutenKatakana;
-                }
+                } else listToUse = youOnKatakana;
 
                 break;
         }

@@ -22,9 +22,9 @@ public class MainActivity extends AppCompatActivity {
 
 
     private void setupListeners() {
-        Button buttonHiragana = (Button) findViewById(R.id.buttonHiragana);
-        Button buttonKatakana = (Button) findViewById(R.id.buttonKatakana);
-        Button buttonMixture = (Button) findViewById(R.id.buttonMixture);
+        Button buttonHiragana = findViewById(R.id.buttonHiragana);
+        Button buttonKatakana = findViewById(R.id.buttonKatakana);
+        Button buttonMixture =  findViewById(R.id.buttonMixture);
 
         buttonHiragana.setOnClickListener(hiraganaButtonPressed);
 
@@ -72,6 +72,9 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         if (id == R.id.action_settings) {
+            Intent intent = new Intent(this, SettingsActivity.class);
+            //intent.putExtra(EXTRA_QUIZ_ID);
+            startActivity(intent);
             return true;
         }
 

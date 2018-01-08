@@ -2,15 +2,19 @@ package com.pikamander2.japanesequizz;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import java.io.Console;
 import java.text.DecimalFormat;
 import java.util.Random;
 
@@ -41,21 +45,21 @@ public class QuizActivity extends Activity {
         intent = getIntent();
 
         quizID = intent.getIntExtra("com.example.myfirstapp.MODE_ID", 1);
-        question = new Question(quizID);
+        question = new Question(quizID, this);
 
         questionAdapter = new QuestionAdapter(this, question);
 
-        textViewRomaji = (TextView) findViewById(R.id.textViewRomaji);
+        textViewRomaji = findViewById(R.id.textViewRomaji);
 
-        textViewScore = (TextView) findViewById(R.id.textViewScore);
+        textViewScore = findViewById(R.id.textViewScore);
 
-        textViewCorrect = (TextView) findViewById(R.id.textViewCorrect);
+        textViewCorrect = findViewById(R.id.textViewCorrect);
 
-        textViewCorrectAnswer = (TextView) findViewById(R.id.textViewCorrectAnswer);
+        textViewCorrectAnswer = findViewById(R.id.textViewCorrectAnswer);
 
-        gridViewQuestions = (ExpandableHeightGridView) findViewById(R.id.gridViewQuestions);
+        gridViewQuestions = findViewById(R.id.gridViewQuestions);
 
-        Button buttonFlipQuestions = (Button) findViewById(R.id.buttonFlipQuestions);
+        Button buttonFlipQuestions = findViewById(R.id.buttonFlipQuestions);
         buttonFlipQuestions.setOnClickListener(flipQuestionsOnClick);
 
         updateScore();
@@ -66,6 +70,13 @@ public class QuizActivity extends Activity {
 
         gridViewQuestions.setAdapter(questionAdapter);
         gridViewQuestions.setExpanded(true);
+
+        int valueFound = Integer.parseInt(PreferenceManager
+                .getDefaultSharedPreferences(this)
+                .getString("choices_list", "4"));
+
+        if (valueFound == 2 || valueFound == 4 || valueFound == 6)
+            numAnswerChoices = valueFound;
 
         switchQuestion();
     }
@@ -97,7 +108,7 @@ public class QuizActivity extends Activity {
             numCorrect++;
             updateScore();
             textViewCorrect.setText("Correct!");
-            textViewCorrect.setTextColor(Color.WHITE);
+            textViewCorrect.setTextColor(Color.GREEN);
         } else {
             numWrong++;
             updateScore();
@@ -142,6 +153,7 @@ public class QuizActivity extends Activity {
         return true;
     }
 
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
@@ -149,8 +161,10 @@ public class QuizActivity extends Activity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
         if (id == R.id.action_settings) {
+            Toast.makeText(this,"Settings available from main menu only", Toast.LENGTH_LONG).show();
             return true;
         }
         return super.onOptionsItemSelected(item);
     }
+
 }

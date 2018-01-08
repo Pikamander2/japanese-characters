@@ -49,13 +49,18 @@ Latest Changes
 * Switched to Android-Studio
 * Add color for error message
 * Customize number of answer to increase difficulty
+* Add Composed Kana   ie:  Gyu  Pyo  Nya etc ...
+* Adjust Difficulty
 
 Todo
 ----
-* Add Composed Kana   ie:  Gyu  Pyo  Nya etc ...
-* Adjust Difficulty and Question count
-* Reduce size of proposal buttons to fit in horizontal view
+* Simplify options access
+* Adjust question count
+* Add easy access to Kana drawing order .svg
 * Memorise/Summarise scores after n answers
 * Draw Kana instead of picking (unlikely to occur in this app ;-) )
 
 
+Canceled
+--------
+* Reduce size of proposal buttons to fit in horizontal view
