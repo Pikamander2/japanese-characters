@@ -56,8 +56,9 @@ Todo
 ----
 * Simplify options access
 * Adjust question count
-* Add easy access to Kana drawing order .svg
-* Memorise/Summarise scores after n answers
+* Show both Kana drawing order .svg
+* Display scores after n answers
+* Record scores, view historical scores
 * Draw Kana instead of picking (unlikely to occur in this app ;-) )
 
 
