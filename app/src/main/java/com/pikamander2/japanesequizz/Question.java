@@ -72,7 +72,7 @@ public class Question {
     private static ArrayList<String[]> dakutenKatakana = new ArrayList<String[]>(Arrays.asList(new String[][]{
             {"ガ", "ga"}, {"ギ", "gi"}, {"グ", "gu"}, {"ゲ", "ge"}, {"ゴ", "go"},
             {"ザ", "za"}, {"ジ", "ji"}, {"ズ", "zu"}, {"ゼ", "ze"}, {"ゾ", "zo"},
-            {"ダ", "da"}, {"ヂ", "ji"}, {"ヅ", "zu"}, {"デ", "de"}, {"ド", "do"},
+            {"ダ", "da"}, {"ヂ", "dji"}, {"ヅ", "dzu"}, {"デ", "de"}, {"ド", "do"},
             {"バ", "ba"}, {"ビ", "bi"}, {"ブ", "bu"}, {"ベ", "be"}, {"ボ", "bo"},
             {"パ", "pa"}, {"ピ", "pi"}, {"プ", "pu"}, {"ペ", "pe"}, {"ポ", "po"}
     }));
