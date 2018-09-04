@@ -13,7 +13,7 @@
          dismiss it. -->
     <!-- NOTE: ListPreference's summary should be set to its value by the activity code. -->
     <ListPreference
-        android:defaultValue="2"
+        android:defaultValue="4"
         android:entries="@array/pref_choices_list_entries"
         android:entryValues="@array/pref_choices_list_values"
         android:key="choices_list"

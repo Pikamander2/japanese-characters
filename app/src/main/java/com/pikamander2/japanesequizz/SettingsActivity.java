@@ -16,6 +16,7 @@ import android.app.ActionBar;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
 import android.preference.RingtonePreference;
+import android.preference.SwitchPreference;
 import android.text.TextUtils;
 import android.view.MenuItem;
 import android.support.v4.app.NavUtils;
@@ -96,7 +97,17 @@ public class SettingsActivity extends PreferenceActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
+
+        /*
+        // By default, show MainPreferences
+        Intent intent = getIntent();
+        if (intent.getStringArrayExtra(EXTRA_SHOW_FRAGMENT) == null) {
+            getIntent().putExtra(EXTRA_SHOW_FRAGMENT, SwitchPreference.class.getName());
+        }
+        */
+
         setupActionBar();
     }
 
@@ -159,6 +170,15 @@ public class SettingsActivity extends PreferenceActivity {
     public static class GeneralPreferenceFragment extends PreferenceFragment {
         @Override
         public void onCreate(Bundle savedInstanceState) {
+
+            /*
+            // By default, show MainPreferences
+            Intent intent = getIntent();
+            if (intent.getStringArrayExtra(EXTRA_SHOW_FRAGMENT) == null) {
+                getIntent().putExtra(EXTRA_SHOW_FRAGMENT, SwitchPreference.class.getName());
+            }
+            */
+
             super.onCreate(savedInstanceState);
             addPreferencesFromResource(R.xml.pref_general);
             setHasOptionsMenu(true);

@@ -8,6 +8,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
+import static android.preference.PreferenceActivity.EXTRA_SHOW_FRAGMENT;
+
 public class MainActivity extends AppCompatActivity {
 
     public final static String EXTRA_QUIZ_ID = "com.example.myfirstapp.MODE_ID";
@@ -72,7 +74,11 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         if (id == R.id.action_settings) {
-            Intent intent = new Intent(this, SettingsActivity.class);
+            final Intent intent = new Intent(this, SettingsActivity.class);
+            intent.putExtra(EXTRA_SHOW_FRAGMENT, SettingsActivity.GeneralPreferenceFragment.class.getName());
+
+            /*intent.putExtra( SettingsActivity.EXTRA_SHOW_FRAGMENT, SettingsActivity.class.getName() );
+            intent.putExtra( SettingsActivity.EXTRA_NO_HEADERS, true );*/
             //intent.putExtra(EXTRA_QUIZ_ID);
             startActivity(intent);
             return true;

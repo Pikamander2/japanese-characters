@@ -7,12 +7,6 @@
     <color name="darkBG">#161622</color>
     <color name="lightText">#FFFFFF</color>
 
-    <string name="ratingText">&quot;Please rate this app!&quot;</string>
-    <string name="radioButton1">Pizza</string>
-    <string name="radioButton2">Nachos</string>
-    <string name="radioButton3">Lemonade</string>
-    <string name="foodChoiceString">What kind of food will you bring?</string>
-    <string name="buttonStuff">Press to do stuff</string>
     <string name="title_activity_display_message">DisplayMessageActivity</string>
     <string name="placeholderDash">-</string>
     <string name="buttonHiragana">Hiragana</string>
@@ -29,13 +23,13 @@
 
     <!-- Example General settings -->
     <string name="pref_header_general">General</string>
-    <string name="pref_title_easy_full">Easy/Full</string>
-    <string name="pref_description_easy_full">when activated, allow characters made of 2 symbols, such as ギョ</string>
+    <string name="pref_title_easy_full">Allow Yōon</string>
+    <string name="pref_description_easy_full">When activated, allow characters made of 2 symbols, such as キャ (kya)</string>
 
     <string name="pref_title_display_name">Display name</string>
     <string name="pref_default_display_name">John Smith</string>
 
-    <string name="pref_choices_title">How many proposals (2 is easy)</string>
+    <string name="pref_choices_title">Number of Answers</string>
     <string-array name="pref_choices_list_entries">
         <item>2</item>
         <item>4</item>
