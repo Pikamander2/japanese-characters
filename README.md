@@ -4,7 +4,7 @@ Japanese Characters
 What is it?
 -----------
 
-Japanese Characters is a simple lightweight Android app for practicing hiragana and katakana. Contains no ads and requires no permissions. 
+Japanese Characters is a simple lightweight Android app for practicing hiragana and katakana. Contains no ads and requires no permissions.
 
 
 The Latest Version
@@ -44,4 +44,24 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see http://www.gnu.org/licenses
 
+Latest Changes
+--------------
+* Switched to Android-Studio
+* Add color for error message
+* Customize number of answer to increase difficulty
+* Add Composed Kana   ie:  Gyu  Pyo  Nya etc ...
+* Adjust Difficulty
 
+Todo
+----
+* Simplify options access
+* Adjust question count
+* Show both Kana drawing order .svg
+* Display scores after n answers
+* Record scores, view historical scores
+* Draw Kana instead of picking (unlikely to occur in this app ;-) )
+
+
+Canceled
+--------
+* Reduce size of proposal buttons to fit in horizontal view

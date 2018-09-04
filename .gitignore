@@ -1,9 +1,10 @@
-#java specific
-*.class
-*.jar
-
-#generated files
-bin/
-gen/
-*.apk
-*.ap_
+*.iml
+.gradle
+/local.properties
+/.idea/workspace.xml
+/.idea/libraries
+.DS_Store
+/build
+/captures
+.externalNativeBuild
+.idea/

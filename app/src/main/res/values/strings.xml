@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Hiragana and Katakana</string>
+    <string name="action_settings">Settings</string>
+
+    <color name="darkBG">#161622</color>
+    <color name="lightText">#FFFFFF</color>
+
+    <string name="ratingText">&quot;Please rate this app!&quot;</string>
+    <string name="radioButton1">Pizza</string>
+    <string name="radioButton2">Nachos</string>
+    <string name="radioButton3">Lemonade</string>
+    <string name="foodChoiceString">What kind of food will you bring?</string>
+    <string name="buttonStuff">Press to do stuff</string>
+    <string name="title_activity_display_message">DisplayMessageActivity</string>
+    <string name="placeholderDash">-</string>
+    <string name="buttonHiragana">Hiragana</string>
+    <string name="buttonKatakana">Katakana</string>
+    <string name="buttonKanji">Kanji</string>
+    <string name="buttonMixture">Mixture</string>
+    <string name="VersionNumber">Version 1.0.6</string>
+    <string name="buttonFlip">Flip questions</string>
+    <string name="Choices">Choices</string>
+    <string name="Count">Count</string>
+    <string name="title_activity_settings">Settings</string>
+
+    <!-- Strings related to Settings -->
+
+    <!-- Example General settings -->
+    <string name="pref_header_general">General</string>
+    <string name="pref_title_easy_full">Easy/Full</string>
+    <string name="pref_description_easy_full">when activated, allow characters made of 2 symbols, such as ギョ</string>
+
+    <string name="pref_title_display_name">Display name</string>
+    <string name="pref_default_display_name">John Smith</string>
+
+    <string name="pref_choices_title">How many proposals (2 is easy)</string>
+    <string-array name="pref_choices_list_entries">
+        <item>2</item>
+        <item>4</item>
+        <item>6</item>
+        <item>8</item>
+    </string-array>
+    <string-array name="pref_choices_list_values">
+        <item>2</item>
+        <item>4</item>
+        <item>6</item>
+        <item>8</item>
+    </string-array>
+
+    <string name="pref_count_title">Repetition count</string>
+    <string-array name="pref_count_list_entries">
+        <item>Quick</item>
+        <item>Rather-Quick</item>
+        <item>Normal</item>
+        <item>Full</item>
+    </string-array>
+    <string-array name="pref_count_list_values">
+        <item>10</item>
+        <item>20</item>
+        <item>50</item>
+        <item>100</item>
+    </string-array>
+
+</resources>
